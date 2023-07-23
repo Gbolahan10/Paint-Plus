@@ -4,9 +4,10 @@
   "description": "A fullstack web development project to help painters or individuals looking to purchase best paint products for chosen colors which they'd be guided through making the best choices.",
   "main": "app.ts",
   "scripts": {
-    "build": "npx tsc",
-    "start": "node dist/app.js",
-    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/app.js\""
+    "start": "npm run build && cross-env NODE_ENV=production node dist/app.js",
+    "build": "tsc && tsc-alias",
+    "devs": "concurrently \"npx tsc --watch\" \"nodemon -q dist/app.js\"",
+    "dev": "cross-env NODE_ENV=development nodemon"
   },
   "repository": {
     "type": "git",
@@ -20,14 +21,35 @@
   },
   "homepage": "https://github.com/Gbolahan10/Paint-Plus#readme",
   "dependencies": {
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
     "dotenv": "^16.3.1",
-    "express": "^4.18.2"
+    "envalid": "^7.3.1",
+    "express": "^4.18.2",
+    "helmet": "^7.0.0",
+    "hpp": "^0.2.3",
+    "mongoose": "^7.4.0",
+    "morgan": "^1.10.0",
+    "winston": "^3.10.0",
+    "winston-daily-rotate-file": "^4.7.1"
   },
   "devDependencies": {
+    "@types/compression": "^1.7.1",
+    "@types/cookie-parser": "^1.4.2",
+    "@types/cors": "^2.8.11",
+    "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.17",
+    "@types/helmet": "^4.0.0",
+    "@types/hpp": "^0.2.1",
+    "@types/morgan": "^1.9.3",
     "@types/node": "^20.4.4",
     "concurrently": "^8.2.0",
+    "cross-env": "^7.0.3",
     "nodemon": "^3.0.1",
+    "ts-node": "^10.9.1",
+    "tsc-alias": "^1.4.1",
+    "tsconfig-paths": "^3.10.1",
     "typescript": "^5.1.6"
   }
 }
